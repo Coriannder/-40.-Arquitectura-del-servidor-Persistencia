@@ -29,6 +29,6 @@ passport.deserializeUser( async (id, done) => {
 
 
 export const authenticate = passport.authenticate('login',{
-    successRedirect: '/index',
+    successRedirect: '/home',
     failureRedirect: '/error'
   })

@@ -1,12 +1,21 @@
+import { usuariosDao } from "../daos/index.js"
+import { isValidPassword } from '../utils/crypt.js'
 
+export const postLoginController = async (req, res, next) => {
+    const usuarios = await usuariosDao.listarAll()
+    const user = usuarios.find(usuario => usuario.email === req.body.username)
 
+    if( !user) {
+        req.session.message = 'Usario no encontrado'
+    }else{
 
-export const getLoginController =  (req, res) => {
-    res.render('pages/login', {subtitleLogin: global.subtitleLogin})
+        if(!isValidPassword(req.body.password , user.password)) {
+            req.session.message = 'Password incorrecto'
+        }}
+    req.session.route = 'login'
+    next();
 }
 
-export const postLoginController =  (req , res , next) => {
-    global.ruta = 'login'
-    global.error = 'error de logueo'
-    next()
+export const getLoginController = (req, res) => {
+    res.render('pages/login')
 }

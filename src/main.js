@@ -1,96 +1,71 @@
-
 import express from 'express'
 import { Server as HttpServer }  from 'http'
-import { productosDao , mensajesDao , usuariosDao } from './daos/index.js'
-import { ContenedorMemoria } from './container/ContenedorMemoria.js'
-import { createManyProducts } from './mocks/productosMocks.js'
 import session from 'express-session'
+import { mongoSession } from './session/mongoSession.js'
+import passport from 'passport'
+import { port } from './config/config.js'
+import { login } from './routes/login.js'
+import { register } from './routes/register.js'
+import { error } from './routes/error.js'
+import { home } from './routes/home.js'
+import { cart } from './routes/cart.js'
+import { logout } from './routes/logout.js'
+import yargs from  'yargs'
 import cluster from 'cluster'
 import { cpus } from 'os'
+import { logger } from './utils/logger.js'
 
-const numCPUs = cpus().length;
+
+
 const app = express()
 const httpServer = new HttpServer(app)
 
-
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.use(express.static('public'))
 
-//------------------Configuracion EJS---------------------------------//
+
+//------------------Configuracion EJS--------------------//
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
 
-//-----------------Configuracion Session-------------------------------//
-
+//-----------------Session-------------------------------//
 app.use(session(mongoSession))
+
+//-----------------Passport------------------------------//
 app.use(passport.initialize())
 app.use(passport.session())
 
-//------------------------PASSPORT----------------------------------//
-import passport from 'passport'
-
-
 //------------------------------RUTAS---------------------//
-
-global.subtitleLogin
-global.ruta = 'login'
-global.error
-
-app.use( '/info' , info )
-app.use('/api/randoms', noBloqueante )
-app.use('/login' , login )
-app.use( '/index' , index )
-app.use( '/logout' , logout )
+app.use( '/login', login )
+app.use( '/logout' , logout)
 app.use( '/register' , register )
 app.use( '/error' , error )
-app.use( '*' , noImplementRoutes )
-
-const mensajesMemoria = new ContenedorMemoria()        // Instancio contendor de mensajes en memoria
-
-await mensajesDao.borrarTodo()                           // Borro los mensajes guardados en mongoDB
-await productosDao.borrarTodo();                         // Booro los productos guardados en mongoDB
-
-
-const prod = createManyProducts(5)                       // Mockeo 5 productos
-prod.forEach(elem => {
-    productosDao.guardar(elem)
+app.use( '/home' , home )
+app.use( '/cart' , cart )
+app.get('*', (req, res) => {
+    res.redirect('/login')
 })
 
-
-
 //------------------YARGS---------------------------------//
-import yargs from  'yargs'
 
-const { /* port, */ mode } = yargs(process.argv.slice(2))
+const { mode } = yargs(process.argv.slice(2))
     .alias({
-        //p: 'port',
         m: 'mode'
     })
     .default({
-        //port: 8086,
         mode: 'fork'
     })
     .argv
 
-//------------------------------------------------------------------//
+//--------------------------Modo CLUSTER------------------------//
 
-import dotenv from 'dotenv'
-import { login } from './routes/login.js'
-import { index } from './routes/index.js'
-import { logout } from './routes/logout.js'
-import { register } from './routes/register.js'
-import { noImplementRoutes } from './routes/noImplementRoutes.js'
-import { error } from './routes/error.js'
-import { mongoSession } from './session/mongoSession.js'
-import { info } from './routes/info.js'
-import { noBloqueante } from './routes/no-bloqueante.js'
-dotenv.config()
-let port = process.env.PORT || 8080
+const numCPUs = cpus().length;
 
 if(mode === 'cluster'){
     if (cluster.isPrimary) {
-        console.log(`Primary ${process.pid} is running`);
+        logger.info(`Primary ${process.pid} is running`);
 
         // Fork workers.
         for (let i = 0; i < numCPUs; i++) {
@@ -98,34 +73,33 @@ if(mode === 'cluster'){
         }
 
         cluster.on('exit', (worker, code, signal) => {
-            console.log(`worker ${worker.process.pid} died`);
+            logger.info(`worker ${worker.process.pid} died`);
+            cluster.fork();
+            logger.info(`worker ${worker.process.pid} is running`);
         });
+
     } else {
+        //------------------Configuracion Server---------------------------------//
+
+        const server = httpServer.listen(port, ()=>{
+            logger.info(`Servidor escuchando en el puerto ${server.address().port}`, `numero de cpus ${numCPUs}`)
+        })
+        server.on(`error`, error => logger.fatal(`Error en servidor: ${error}`))
+    }
+
+} else {
 
     //------------------Configuracion Server---------------------------------//
 
     const server = httpServer.listen(port, ()=>{
-        console.log(`Servidor escuchando en el puerto ${server.address().port}`, `numero de cpus ${numCPUs}`)
+        try {
+            logger.info(`Servidor escuchando en el puerto ${server.address().port}`, `numero de cpus ${numCPUs}`)
+        } catch (error) {
+            logger.fatal('Error en servidor' , error)
+        }
     })
-    server.on(`error`, error => console.log(`Error en servidor: ${error}`))
-
-    }
-
-}else{
-
-    //------------------Configuracion Server---------------------------------//
- 
-    //const PORT = 8080
-    const server = httpServer.listen(process.env.PORT, ()=>{
-        puerto = server.address().port
-        console.log(`Servidor escuchando en el puerto ${server.address().port}`, `numero de cpus ${numCPUs}`)
-    })
-    server.on(`error`, error => console.log(`Error en servidor: ${error}`))
+    server.on(`error`, error => logger.fatal(`Error en servidor: ${error}`))
 
 }
-
-let puerto;
-
-
 
 
