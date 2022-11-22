@@ -405,3 +405,182 @@
   details: undefined
 }
 [2022-11-18T20:17:58.081] [FATAL] default - Error en servidor: Error: listen EADDRINUSE: address already in use :::8080
+[2022-11-19T18:52:22.700] [FATAL] default - Error en servidor: Error: listen EADDRINUSE: address already in use :::8080
+[2022-11-20T08:34:27.038] [FATAL] default - Error en servidor: Error: listen EADDRINUSE: address already in use :::8080
+[2022-11-21T17:56:48.442] [FATAL] default - Error en servidor: Error: listen EADDRINUSE: address already in use :::8080
+[2022-11-21T21:00:56.512] [ERROR] default - ReferenceError: objectAsDto is not defined
+    at Dto.transform (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/index.js:20:29)
+    at CarritosDaoMongoDb.listar (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/container/ContenedorMongoDb.js:33:61)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/main.js:73:22
+[2022-11-21T21:02:10.508] [ERROR] default - TypeError: objectAsDto.length is not a function
+    at Dto.transform (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/index.js:32:24)
+    at CarritosDaoMongoDb.listar (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/container/ContenedorMongoDb.js:33:61)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/main.js:73:22
+[2022-11-21T21:27:56.781] [ERROR] default - ERROR
+[2022-11-21T21:29:48.506] [ERROR] default - TypeError: carritos.map is not a function
+    at CarritoDto.asDto (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/carritoDto.js:13:25)
+    at Dto.transform (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/index.js:22:42)
+    at CarritosDaoMongoDb.guardar (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/container/ContenedorMongoDb.js:52:61)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async postCartBuyController (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/controller/cart.js:76:9)
+[2022-11-21T21:29:50.145] [ERROR] default - error AL ENVIAR WHATSAPP new cart RestException [Error]: Authenticate
+    at success (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\twilio\lib\base\Version.js:135:15)
+    at Promise_then_fulfilled (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:766:44)
+    at Promise_done_fulfilled (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:835:31)
+    at Fulfilled.Fulfilled_dispatch [as dispatch] (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:1229:9)
+    at Pending_become_eachMessage_task (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:1369:30)
+    at RawTask.call (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\asap\asap.js:40:19)
+    at flush (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\asap\raw.js:50:29)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  status: 401,
+  code: 20003,
+  moreInfo: 'https://www.twilio.com/docs/errors/20003',
+  details: undefined
+}
+[2022-11-21T21:29:50.891] [ERROR] default - ERROR AL ENVIAR SMS new cart RestException [Error]: Authenticate
+    at success (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\twilio\lib\base\Version.js:135:15)
+    at Promise_then_fulfilled (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:766:44)
+    at Promise_done_fulfilled (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:835:31)
+    at Fulfilled.Fulfilled_dispatch [as dispatch] (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:1229:9)
+    at Pending_become_eachMessage_task (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:1369:30)
+    at RawTask.call (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\asap\asap.js:40:19)
+    at flush (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\asap\raw.js:50:29)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  status: 401,
+  code: 20003,
+  moreInfo: 'https://www.twilio.com/docs/errors/20003',
+  details: undefined
+}
+[2022-11-21T21:32:06.162] [ERROR] default - TypeError: carritos.map is not a function
+    at CarritoDto.asDto (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/carritoDto.js:13:25)
+    at Dto.transform (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/index.js:22:42)
+    at CarritosDaoMongoDb.guardar (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/container/ContenedorMongoDb.js:52:61)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async postCartBuyController (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/controller/cart.js:76:9)
+[2022-11-21T21:32:07.259] [ERROR] default - error AL ENVIAR WHATSAPP new cart RestException [Error]: Authenticate
+    at success (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\twilio\lib\base\Version.js:135:15)
+    at Promise_then_fulfilled (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:766:44)
+    at Promise_done_fulfilled (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:835:31)
+    at Fulfilled.Fulfilled_dispatch [as dispatch] (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:1229:9)
+    at Pending_become_eachMessage_task (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:1369:30)
+    at RawTask.call (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\asap\asap.js:40:19)
+    at flush (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\asap\raw.js:50:29)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  status: 401,
+  code: 20003,
+  moreInfo: 'https://www.twilio.com/docs/errors/20003',
+  details: undefined
+}
+[2022-11-21T21:32:08.017] [ERROR] default - ERROR AL ENVIAR SMS new cart RestException [Error]: Authenticate
+    at success (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\twilio\lib\base\Version.js:135:15)
+    at Promise_then_fulfilled (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:766:44)
+    at Promise_done_fulfilled (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:835:31)
+    at Fulfilled.Fulfilled_dispatch [as dispatch] (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:1229:9)
+    at Pending_become_eachMessage_task (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:1369:30)
+    at RawTask.call (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\asap\asap.js:40:19)
+    at flush (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\asap\raw.js:50:29)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  status: 401,
+  code: 20003,
+  moreInfo: 'https://www.twilio.com/docs/errors/20003',
+  details: undefined
+}
+[2022-11-21T21:44:19.239] [ERROR] default - ReferenceError: pers is not defined
+    at CarritoDto.asDto (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/carritoDto.js:13:27)
+    at Dto.transform (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/index.js:22:42)
+    at CarritosDaoMongoDb.guardar (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/container/ContenedorMongoDb.js:52:60)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async postCartBuyController (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/controller/cart.js:76:25)
+[2022-11-21T21:45:27.629] [ERROR] default - ReferenceError: carrito is not defined
+    at CarritoDto.asDto (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/carritoDto.js:16:36)
+    at Dto.transform (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/index.js:22:42)
+    at CarritosDaoMongoDb.guardar (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/container/ContenedorMongoDb.js:52:60)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async postCartBuyController (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/controller/cart.js:76:25)
+[2022-11-21T21:52:16.117] [ERROR] default - TypeError: usuarios.map is not a function
+    at UsuarioDto.asDto (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/usuarioDto.js:15:29)
+    at Dto.transform (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/index.js:18:42)
+    at UsuariosDaoMongoDb.guardar (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/container/ContenedorMongoDb.js:52:60)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async postRegisterController (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/controller/register.js:28:9)
+[2022-11-21T21:52:17.338] [ERROR] default - error AL ENVIAR RestException [Error]: Authenticate
+    at success (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\twilio\lib\base\Version.js:135:15)
+    at Promise_then_fulfilled (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:766:44)
+    at Promise_done_fulfilled (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:835:31)
+    at Fulfilled.Fulfilled_dispatch [as dispatch] (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:1229:9)
+    at Pending_become_eachMessage_task (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:1369:30)
+    at RawTask.call (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\asap\asap.js:40:19)
+    at flush (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\asap\raw.js:50:29)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  status: 401,
+  code: 20003,
+  moreInfo: 'https://www.twilio.com/docs/errors/20003',
+  details: undefined
+}
+[2022-11-21T21:57:54.065] [ERROR] default - error AL ENVIAR RestException [Error]: Authenticate
+    at success (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\twilio\lib\base\Version.js:135:15)
+    at Promise_then_fulfilled (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:766:44)
+    at Promise_done_fulfilled (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:835:31)
+    at Fulfilled.Fulfilled_dispatch [as dispatch] (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:1229:9)
+    at Pending_become_eachMessage_task (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\q\q.js:1369:30)
+    at RawTask.call (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\asap\asap.js:40:19)
+    at flush (C:\Users\sebas\Dropbox\PROGRAMACION\CODERHOUSE\FULLSTACK\4.BackEnd\40.Arquitectura-del-servidor-Persistencia\node_modules\asap\raw.js:50:29)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+  status: 401,
+  code: 20003,
+  moreInfo: 'https://www.twilio.com/docs/errors/20003',
+  details: undefined
+}
+[2022-11-22T17:29:14.470] [ERROR] default - ReferenceError: transformMongoObject is not defined
+    at UsuariosDaoMongoDb.listarAll (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/container/ContenedorMongoDb.js:41:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async postLoginController (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/controller/login.js:6:19)
+[2022-11-22T17:29:14.533] [ERROR] default - ReferenceError: transformMongoObject is not defined
+    at UsuariosDaoMongoDb.listarAll (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/container/ContenedorMongoDb.js:41:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Strategy._verify (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/middleware/passport.js:10:19)
+[2022-11-22T17:31:15.106] [ERROR] default - TypeError: Cannot read properties of undefined (reading 'toString')
+    at new UsuarioDto (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/usuarioDto.js:6:60)
+    at file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/usuarioDto.js:18:44
+    at Array.map (<anonymous>)
+    at UsuarioDto.asDto (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/usuarioDto.js:18:29)
+    at Dto.transform (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/index.js:18:42)
+    at UsuariosDaoMongoDb.listarAll (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/container/ContenedorMongoDb.js:41:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async postLoginController (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/controller/login.js:6:19)
+[2022-11-22T17:31:15.169] [ERROR] default - TypeError: Cannot read properties of undefined (reading 'toString')
+    at new UsuarioDto (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/usuarioDto.js:6:60)
+    at file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/usuarioDto.js:18:44
+    at Array.map (<anonymous>)
+    at UsuarioDto.asDto (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/usuarioDto.js:18:29)
+    at Dto.transform (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/index.js:18:42)
+    at UsuariosDaoMongoDb.listarAll (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/container/ContenedorMongoDb.js:41:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Strategy._verify (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/middleware/passport.js:10:19)
+[2022-11-22T17:42:08.419] [ERROR] default - ReferenceError: usuario is not defined
+    at new ProductoDto (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/productoDto.js:11:48)
+    at file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/productoDto.js:17:46
+    at Array.map (<anonymous>)
+    at ProductoDto.asDto (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/productoDto.js:17:30)
+    at Dto.transform (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/index.js:26:43)
+    at ProductosDaoMongoDb.listarAll (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/container/ContenedorMongoDb.js:41:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async getHomeController (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/controller/home.js:7:28)
+[2022-11-22T17:43:41.612] [ERROR] default - ReferenceError: usuario is not defined
+    at new ProductoDto (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/productoDto.js:11:19)
+    at file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/productoDto.js:17:46
+    at Array.map (<anonymous>)
+    at ProductoDto.asDto (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/productoDto.js:17:30)
+    at Dto.transform (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/index.js:26:43)
+    at ProductosDaoMongoDb.listarAll (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/container/ContenedorMongoDb.js:41:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async getHomeController (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/controller/home.js:7:28)
+[2022-11-22T17:45:23.931] [ERROR] default - ReferenceError: usuario is not defined
+    at new CarritoDto (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/carritoDto.js:10:48)
+    at CarritoDto.asDto (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/carritoDto.js:18:20)
+    at Dto.transform (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/dtos/index.js:22:42)
+    at CarritosDaoMongoDb.guardar (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/container/ContenedorMongoDb.js:52:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async postCartBuyController (file:///C:/Users/sebas/Dropbox/PROGRAMACION/CODERHOUSE/FULLSTACK/4.BackEnd/40.Arquitectura-del-servidor-Persistencia/src/controller/cart.js:76:25)

@@ -2,6 +2,8 @@ import mongoose from 'mongoose'
 import transformMongoObject from '../utils/objectUtils.js'
 import { urlMongo } from '../config/config.js'
 import { logger } from '../utils/logger.js'
+import Dto from '../dtos/index.js'
+
 
 
 
@@ -16,13 +18,14 @@ await  mongoose.connect(urlMongo, {
 class ContenedorMongoDb {
     constructor (nombreCollection, squema) {
         this.collection = mongoose.model(nombreCollection, squema)
+        this.dto = new Dto(nombreCollection)
     }
 
     async listar(id) {
         try {
             const res = await this.collection.find({_id: id})
-            
-            return transformMongoObject(res)
+
+            return  this.dto.transform(transformMongoObject(res))
         } catch (error) {
             logger.error(error)
             return false
@@ -35,10 +38,10 @@ class ContenedorMongoDb {
             if(res.length == 0){
                 return res
             }else{
-                return transformMongoObject(res)
+                return  this.dto.transform(transformMongoObject(res))
             }
         } catch (error) {
-            logger.err(error)
+            logger.error(error)
             return false
         }
     }
@@ -46,9 +49,9 @@ class ContenedorMongoDb {
     async guardar(elemento) {
         try {
             const res = await this.collection.create(elemento)
-            return transformMongoObject(res)
+            return  this.dto.transform(transformMongoObject(res))
         } catch (error) {
-            logger.err(error)
+            logger.error(error)
             return false
         }
     }
@@ -58,7 +61,7 @@ class ContenedorMongoDb {
             const res = await this.collection.updateOne({_id: id} , { $set: elemento })
             return res.acknowledged
         } catch (error) {
-            logger.err(error)
+            logger.error(error)
             return false
         }
     }
@@ -68,7 +71,7 @@ class ContenedorMongoDb {
             const res = await   this.collection.deleteOne({_id: id})
             return res.acknowledged
         } catch (error) {
-            console.log(error)
+            logger.error(error)
             return false
         }
     }
@@ -78,7 +81,7 @@ class ContenedorMongoDb {
             const res = await   this.collection.deleteMany()
             return res.acknowledged
         } catch (error) {
-            logger.err(error)
+            logger.error(error)
             return false
         }
     }

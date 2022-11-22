@@ -1,13 +1,14 @@
 import passport from 'passport'
-import { usuariosDao } from '../daos/index.js'
+import { usuariosDao } from '../daos/daosFactory.js'
 import  { Strategy as LocalStrategy } from 'passport-local'
 import { isValidPassword } from '../utils/crypt.js'
 
 
 passport.use('login' , new LocalStrategy( async ( username , password , done) => {
 
-    const usuarios = await usuariosDao.listarAll()
-    if( usuarios === false ) done( Error('error') ) 
+    const usuarios = []
+    Array.prototype.push.apply(usuarios , await usuariosDao.listarAll() );
+    if( usuarios === false ) done( Error('error') )
     const user = usuarios.find(usuario => usuario.email === username)
     if( !user) {
         done(null, false)

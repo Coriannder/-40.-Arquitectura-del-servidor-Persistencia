@@ -1,5 +1,5 @@
 
-import { carritosDao, usuariosDao } from "../daos/index.js"
+import { carritosDao, usuariosDao } from "../daos/daosFactory.js"
 import { sendMailNewCart } from "../utils/nodemailer.js"
 import { sendMessageNewCart } from "../utils/twilio.js"
 
@@ -8,7 +8,7 @@ let carritos = []  // aqui se guardan los carritos que esten generando los usuar
 
 export const getCartController = async (req, res ) => {
     if(req.isAuthenticated()){
-        const nombre = (await usuariosDao.listar(req.session.passport.user))[0].nombre
+        const nombre = (await usuariosDao.listar(req.session.passport.user)).nombre
         let miCarrito = carritos.find(carrito => carrito.user === req.session.passport.user)
 
         res.render('pages/cart', {
@@ -73,10 +73,10 @@ export const postCartBuyController = async ( req , res ) => {
         const usuario =  await usuariosDao.listar(req.session.passport.user)
         let miCarrito = carritos.find(carrito => carrito.user === req.session.passport.user)
 
-        await carritosDao.guardar(miCarrito)
+        const guardar = await carritosDao.guardar(miCarrito)
 
-        sendMailNewCart(usuario[0].nombre , usuario[0].email , miCarrito)       // Envio mail al admin con la nueva compra
-        sendMessageNewCart(usuario[0].nombre , usuario[0].email , miCarrito)    // Envio whatsapp al admin con la nuevq compra
+        sendMailNewCart(usuario.nombre , usuario.email , miCarrito)       // Envio mail al admin con la nueva compra
+        //sendMessageNewCart(usuario.nombre , usuario.email , miCarrito)    // Envio whatsapp al admin con la nuevq compra
 
         const index = carritos.findIndex(carrito => carrito.user === req.session.passport.user) // Indice de miCarrito
         carritos.splice(index,1)    // Elimino el carrito completo porque ya se realizo la compra

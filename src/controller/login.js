@@ -1,9 +1,10 @@
-import { usuariosDao } from "../daos/index.js"
+import { usuariosDao } from "../daos/daosFactory.js"
 import { isValidPassword } from '../utils/crypt.js'
 
 export const postLoginController = async (req, res, next) => {
-    const usuarios = await usuariosDao.listarAll()
-    const user = usuarios.find(usuario => usuario.email === req.body.username)
+    const usuarios = []
+    usuarios.push(await usuariosDao.listarAll())
+    const user = usuarios.find(usuario => usuario.email == req.body.username)
 
     if( !user) {
         req.session.message = 'Usario no encontrado'

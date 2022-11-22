@@ -1,5 +1,6 @@
 import ContenedorMongoDb from "../../container/ContenedorMongoDb.js";
 
+let instance = null;
 
 class ProductosDaoMongoDb extends ContenedorMongoDb{
     constructor(){
@@ -9,6 +10,11 @@ class ProductosDaoMongoDb extends ContenedorMongoDb{
             thumbnail: {type: String, required: true}
         })
     }
+
+    static getInstance() {
+		if (!instance) instance = new ProductosDaoMongoDb;
+		return instance;
+	}
 }
 
 export default ProductosDaoMongoDb

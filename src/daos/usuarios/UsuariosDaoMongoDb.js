@@ -2,7 +2,7 @@ import mongooseTypePhone from 'mongoose-type-phone'
 import mongoose from 'mongoose';
 import ContenedorMongoDb from "../../container/ContenedorMongoDb.js";
 
-
+let instance = null;
 class UsuariosDaoMongoDb extends ContenedorMongoDb{
     constructor(){
         super('Usuarios', {
@@ -21,9 +21,13 @@ class UsuariosDaoMongoDb extends ContenedorMongoDb{
                 defaultRegion: 'AR',
                 parseOnGet: false
             }
-
         })
     }
+
+    static getInstance() {
+		if (!instance) instance = new UsuariosDaoMongoDb;
+		return instance;
+	}
 }
 
 export default UsuariosDaoMongoDb

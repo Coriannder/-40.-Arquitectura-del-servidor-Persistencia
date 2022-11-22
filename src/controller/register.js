@@ -1,4 +1,4 @@
-import { usuariosDao } from "../daos/index.js"
+import { usuariosDao } from "../daos/daosFactory.js"
 import { createHash } from "../utils/crypt.js"
 import { sendMailNewUser } from "../utils/nodemailer.js"
 import { sendWhatsAppNewUser } from "../utils/twilio.js"
@@ -27,7 +27,7 @@ export const postRegisterController = async ( req , res  ) => {
 
         await usuariosDao.guardar( newUser ).then( res => {
             sendMailNewUser( newUser )
-            sendWhatsAppNewUser( newUser )
+            //sendWhatsAppNewUser( newUser )
         })
 
         const msg = `NUEVO USUARIO REGISTARDO

@@ -10,10 +10,11 @@ import { error } from './routes/error.js'
 import { home } from './routes/home.js'
 import { cart } from './routes/cart.js'
 import { logout } from './routes/logout.js'
-import yargs from  'yargs'
 import cluster from 'cluster'
 import { cpus } from 'os'
 import { logger } from './utils/logger.js'
+import { mode } from './utils/yargs.js'
+
 
 
 
@@ -48,22 +49,12 @@ app.get('*', (req, res) => {
     res.redirect('/login')
 })
 
-//------------------YARGS---------------------------------//
-
-const { mode } = yargs(process.argv.slice(2))
-    .alias({
-        m: 'mode'
-    })
-    .default({
-        mode: 'fork'
-    })
-    .argv
 
 //--------------------------Modo CLUSTER------------------------//
 
 const numCPUs = cpus().length;
 
-if(mode === 'cluster'){
+if( mode === 'cluster' ){
     if (cluster.isPrimary) {
         logger.info(`Primary ${process.pid} is running`);
 
@@ -91,7 +82,7 @@ if(mode === 'cluster'){
 
     //------------------Configuracion Server---------------------------------//
 
-    const server = httpServer.listen(port, ()=>{
+    const server = httpServer.listen(port, () => {
         try {
             logger.info(`Servidor escuchando en el puerto ${server.address().port}`, `numero de cpus ${numCPUs}`)
         } catch (error) {
@@ -101,5 +92,3 @@ if(mode === 'cluster'){
     server.on(`error`, error => logger.fatal(`Error en servidor: ${error}`))
 
 }
-
-

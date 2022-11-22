@@ -1,19 +1,24 @@
-export class ContenedorMemoria {
+import Dto from "../dtos/index.js";
 
-    constructor() {
+
+
+class ContenedorMemoria {
+
+    constructor(nombreCollection) {
         this.elementos = []
+        this.dto = new Dto(nombreCollection)
     }
 
-    listar(id) {
-        const elem = this.elementos.find(elem => elem.id == id)
+    async listar(id) {
+        const elem = this.dto.transform(this.elementos.find(elem => elem.id == id))
         return elem || false;
     }
 
-    listarAll() {
-        return [...this.elementos]
+    async listarAll() {
+        return this.dto.transform([...this.elementos])
     }
 
-    guardar(elem) {
+    async guardar(elem) {
 
         let newId
         if (this.elementos.length == 0) {
@@ -24,31 +29,32 @@ export class ContenedorMemoria {
 
         const newElem = { ...elem, id: newId }
         this.elementos.push(newElem)
-        return newElem
+        return this.dto.transform(newElem)
     }
 
-    actualizar(elem) {
+    async actualizar(elem) {
         const newElem = { ...elem, id: Number(elem.id) }
         const index = this.elementos.findIndex(p => p.id == elem.id)
         if (index == -1) {
             return false
         } else {
             this.elementos[index] = newElem
-            return newElem
+            return this.dto.transform(newElem)
         }
     }
 
-    borrar(id) {
+    async borrar(id) {
         const index = this.elementos.findIndex(elem => elem.id == id)
         if (index == -1) {
             return false
         } else {
-            return this.elementos.splice(index, 1)
+            return this.dto.transform(this.elementos.splice(index, 1))
         }
     }
 
-    borrarAll() {
+    async borrarAll() {
         this.elementos = []
     }
 }
 
+export default ContenedorMemoria
